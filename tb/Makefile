@@ -12,4 +12,4 @@ waves:
 	simvision waves.shm
 
 clean:
-	rm -rf shm.tcl .shm xcelium.d xrun. .simvision
+	rm -rf  xcelium.d xrun.* .simvision

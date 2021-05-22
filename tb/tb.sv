@@ -13,7 +13,7 @@ module tb();
 
 //Testbench monitors
   reg signed [9:0] data_out_dir[0:3];
-  reg signed [7:0] data_out_inv[0:3];
+  reg signed [12:0] data_out_inv[0:3];
 
 //design instance
   DCT my_dct (.dt_i(data_in),
@@ -30,13 +30,14 @@ initial begin
   $display("Data_in -> Data_out_dir ; Data_out_inv");
   $display("Dataset 1: ");
   for (int i=0 ; i<4; i++)
-    $display("%d -> %d ; %d",data_in[i], data_out_dir[i], data_out_inv[i]);
+    $display("%d(original_sample) -> %d (direct_DCT) ;%d (recovered_sample)",data_in[i], data_out_dir[i],data_out_inv[i]/20);
 
 
   data_in = {8'h27, 8'h53, 8'h50, 8'h06};
   #10;
-  $display("Dataset 2: ");
+  $display("Data_in -> Data_out_dir ; Data_out_inv");
+  $display("Dataset 1: ");
   for (int i=0 ; i<4; i++)
-    $display("%d -> %d ; %d",data_in[i], data_out_dir[i],data_out_inv[i]);
+    $display("%d(original_sample) -> %d (direct_DCT) ;%d (recovered_sample)",data_in[i], data_out_dir[i],data_out_inv[i]/20);
  end
 endmodule
